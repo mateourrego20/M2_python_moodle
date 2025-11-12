@@ -1,6 +1,6 @@
 
 # Lista donde se guardarán los productos como diccionarios
-inventario = []
+inventary = []
 
 # Variable para mantener activo el ciclo principal del menú
 follow  = True
@@ -20,21 +20,21 @@ while follow:
     print("4. salir")
 
     # Solicita al usuario elegir una opción
-    opcion = int(input("Selecciona una opcion por favor: "))
+    option = int(input("Selecciona una opcion por favor: "))
   
     # Opción 1: Agregar productos al inventario
-    if opcion == 1: 
+    if option == 1: 
         # Permite agregar varios productos seguidos
         while True:
-            nombre = input("ingrese el nombre del producto: ")
-            precio = float(input("ingrese el precio del producto: "))
-            cantidad = int(input("ingrese la cantidad de productos: "))
+            namep = input("ingrese el nombre del producto: ")
+            price = float(input("ingrese el precio del producto: "))
+            amount = int(input("ingrese la cantidad de productos: "))
 
             # Se crea un diccionario con la información del producto
-            guardar  = {"nombre" :nombre,"precio" :precio,"cantidad" :cantidad }    
+            keep = {"nombre" :namep,"precio" :price,"cantidad" :amount }    
 
             # Se agrega el producto al inventario
-            inventario.append(guardar)
+            inventary.append(keep)
 
             # Pregunta si se desea agregar otro producto
             continuar=input("deseas continuar: "  )
@@ -42,30 +42,30 @@ while follow:
                 break
                 
     # Opción 2: Mostrar el inventario completo
-    elif  opcion == 2:
+    elif  option == 2:
         # Verifica si el inventario está vacío
-        if not inventario:
+        if not inventary:
             print("el inventario esta vacio")
 
         print("tu inventario es")
         # Recorre y muestra cada producto almacenado
-        for guardar in inventario:
-            name = guardar ["nombre"]
-            costo = guardar ["precio"]
-            productos = guardar ["cantidad"]
+        for keep in inventary:
+            name = keep ["nombre"]
+            costs = keep ["precio"]
+            products = keep ["cantidad"]
             print("----------------------------------------------------------")
-            print (f"nombre:{name} | precio:{costo} | cantidad: {productos} ")
+            print (f"nombre:{name} | precio:{costs} | cantidad: { products} ")
             print("--------------------------------------------------------------")
      
     # Opción 3: Calcular estadísticas
-    elif opcion == 3:
+    elif option == 3:
         total = 0
         # Calcula subtotales por producto
-        for guardar in inventario:
-            costo = guardar ["precio"]
-            productos = guardar ["cantidad"]
+        for keep in inventary:
+            costs = keep ["precio"]
+            products = keep ["cantidad"]
 
-            subtotal = productos*costo
+            subtotal =  products*costs
             print("---------------------------------")
             print(f"el valor de cada producto es: ${subtotal}")
             print("---------------------------------------------")
@@ -73,16 +73,16 @@ while follow:
         # Pregunta si se desea calcular el valor total del inventario
         calcular = input("quieres calcular el valor total del inventario si/no: ")
         if calcular == "si":
-                for guardar in inventario: 
-                    costo = guardar ["precio"]
-                    productos = guardar ["cantidad"]
-                    total += productos * costo   
+                for keep in inventary: 
+                    costs = keep ["precio"]
+                    products = keep ["cantidad"]
+                    total +=  products * costs   
                 print("----------------------------------------------")
                 print(f"EL COSTO TOTAL ES: ${total}") 
                 print("---------------------------------------")
 
     # Opción 4: Salir del programa
-    elif opcion== 4:
+    elif option == 4:
         exitt = input("deseas salir del programa si/no: ")
         if exitt == "si":
             print("has salido con exito del programa")
